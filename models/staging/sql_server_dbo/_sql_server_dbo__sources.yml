@@ -166,13 +166,13 @@ sources:
         columns:
           - name: promo_id
             data_type: varchar
-            description: ""
+            description: "Nombre del descuento"
           - name: discount
             data_type: number
-            description: ""
+            description: "Descuento en €, no porcentaje"
           - name: status
             data_type: varchar
-            description: ""
+            description: "Estado del descuento: activo / inactivo"
           - name: _fivetran_deleted
             data_type: boolean
             description: ""
