@@ -1,0 +1,2 @@
+
+{{ dbt_utils.generate_surrogate_key(['field_a', 'field_b'[,...]]) }}
