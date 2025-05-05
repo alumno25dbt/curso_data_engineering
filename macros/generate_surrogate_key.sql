@@ -1,2 +1,2 @@
 
-{{ dbt_utils.generate_surrogate_key(['promo_id'])}} 
+{{ dbt_utils.generate_surrogate_key(['field_a', 'field_b'[,...]]) }}
