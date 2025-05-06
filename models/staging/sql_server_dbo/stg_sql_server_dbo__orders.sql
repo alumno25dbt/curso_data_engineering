@@ -1,8 +1,8 @@
 SELECT
-    order_id,
+    {{ dbt_utils.generate_surrogate_key(['order_id'])}} AS order_id,
     shipping_service,
     shipping_cost, 
-    address_id,
+    {{ dbt_utils.generate_surrogate_key(['address_id'])}} AS address_id,
     created_at,
     CASE 
     WHEN promo_id != '' THEN promo_id
