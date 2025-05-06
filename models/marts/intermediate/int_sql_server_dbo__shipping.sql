@@ -1,6 +1,6 @@
 SELECT
     shipping_service,
-    shipping_cost,
+    created_at,
     estimated_delivery_at,
     delivered_at,
     tracking_id,
