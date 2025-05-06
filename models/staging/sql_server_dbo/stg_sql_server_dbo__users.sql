@@ -1,8 +1,8 @@
 SELECT 
-    user_id,
+    {{ dbt_utils.generate_surrogate_key(['user_id'])}} AS user_id,
     created_at,
     updated_at,
-    address_id,
+    {{ dbt_utils.generate_surrogate_key(['address_id'])}} AS address_id,
     first_name,
     last_name,
     phone_number,

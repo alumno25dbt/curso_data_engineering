@@ -1,3 +1,15 @@
+WITH cte11 AS (
+    SELECT 
+    address_id,
+    address,
+    country,
+    state,
+    zipcode,
+    _fivetran_deleted,
+    _fivetran_synced
+     FROM {{source('sql_server_dbo','addresses')}}
+)
+
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['address_id'])}} AS address_id,
     address,
@@ -6,4 +18,4 @@ SELECT
     zipcode,
     _fivetran_deleted,
     _fivetran_synced
-FROM {{source('sql_server_dbo','addresses')}}
+FROM cte11

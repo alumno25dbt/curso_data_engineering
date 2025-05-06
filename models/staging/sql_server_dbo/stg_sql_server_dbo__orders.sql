@@ -1,3 +1,7 @@
+WITH cte12 AS (
+    SELECT * FROM {{source('sql_server_dbo','orders')}}
+)
+
 SELECT
     {{ dbt_utils.generate_surrogate_key(['order_id'])}} AS order_id,
     shipping_service,
@@ -10,11 +14,11 @@ SELECT
     END AS desc_promo,
     estimated_delivery_at,
     order_cost,
-    user_id,
+    {{ dbt_utils.generate_surrogate_key(['user_id'])}} AS user_id,
     order_total,
     delivered_at,
-    tracking_id,
+    {{ dbt_utils.generate_surrogate_key(['tracking_id'])}} AS tracking_id,
     status,
     _fivetran_deleted,
     _fivetran_synced
-FROM {{source('sql_server_dbo','orders')}}
+FROM cte12
