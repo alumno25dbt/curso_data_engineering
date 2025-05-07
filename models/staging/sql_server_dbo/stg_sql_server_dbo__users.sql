@@ -1,3 +1,7 @@
+WITH cte13 AS (
+    SELECT * FROM {{source('sql_server_dbo','users')}}
+)
+
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['user_id'])}} AS user_id,
     created_at,
@@ -9,4 +13,4 @@ SELECT
     email,
     _fivetran_deleted,
     _fivetran_synced
-FROM {{source('sql_server_dbo','users')}}
+FROM cte13
