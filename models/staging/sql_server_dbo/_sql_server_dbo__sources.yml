@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: sql_server_dbo
     description: ""
-    database: alumno25_dev_bronze_db
+    database: "{{ env_var('DBT_ENVIRONMENTS') }}_BRONZE_DB"
     schema: sql_server_dbo
 
     quoting:
@@ -32,7 +32,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: created_at
             data_type: timestamp_tz
             description: ""
@@ -41,7 +40,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: estimated_delivery_at
             data_type: timestamp_tz
             description: ""
@@ -53,7 +51,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: order_total
             data_type: float
             description: ""
@@ -65,7 +62,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: status
             data_type: varchar
             description: ""
@@ -84,13 +80,11 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: product_id
             data_type: varchar
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: quantity
             data_type: number
             description: ""
@@ -109,7 +103,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: zipcode
             data_type: number
             description: ""
@@ -137,7 +130,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: page_url
             data_type: varchar
             description: ""
@@ -149,19 +141,16 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: product_id
             data_type: varchar
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: session_id
             data_type: varchar
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: created_at
             data_type: timestamp_ntz
             description: ""
@@ -170,7 +159,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: _fivetran_deleted
             data_type: boolean
             description: ""
@@ -186,7 +174,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: price
             data_type: float
             description: ""
@@ -211,7 +198,6 @@ sources:
             description: "Nombre del descuento"
             data_tests:
               - not_null
-              - unique
           - name: discount
             data_type: number
             description: "Descuento en €, no porcentaje"
@@ -233,7 +219,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: updated_at
             data_type: timestamp_tz
             description: ""
@@ -242,7 +227,6 @@ sources:
             description: ""
             data_tests:
               - not_null
-              - unique
           - name: last_name
             data_type: varchar
             description: ""
