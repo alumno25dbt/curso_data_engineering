@@ -23,7 +23,7 @@ SELECT
     {{ dbt_utils.generate_surrogate_key(['user_id'])}} AS user_id,
     order_total,
     CASE
-    WHEN status != 'preparing' THEN delivered_at
+    WHEN status = 'delivered' THEN delivered_at
     ELSE '1999-01-01'
     END AS delivered_at,
     {{ dbt_utils.generate_surrogate_key(['tracking_id'])}} AS tracking_id,
